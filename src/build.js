@@ -4,15 +4,15 @@ const stringify = require('csv-stringify');
 const CodeforcesSerivce = require('./CodeforcesService');
 const config = require('./config');
 
-const POINTS = [[1, 2, 1, 3, 1], [4, 2, 5, 3, 1], [2, 1, 3, 4, 6], [5, 3, 3, 1, 3]];
-const CONTESTS = ['232482', '232659', '232661', '232662'];
+const POINTS = [[1, 3, 1, 2, 2 , 3], [2, 3, 1, 1, 3], [1, 1, 4, 2, 1, 3]];
+const CONTESTS = ['259043', '259389', '259644'];
 const PROBLEMS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 (async function() {
   const cfService = new CodeforcesSerivce(config.CF_KEY, config.CF_SECRET);
   let data = [];
 
-  for (let i = 0; i < 4; ++i) {
+  for (let i = 0; i < CONTESTS.length; ++i) {
     const standings = await cfService.getContestStandings(CONTESTS[i]);
     const rows = standings.rows
       .map(row => ({
