@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   const data = handles.map(handle => {
     const entry = database.filter(entry => entry.handle.toLowerCase() === handle)[0];
     if (entry === undefined) {
-      return { handle, 'Contest 1': 0, 'Contest 2': 0, 'Contest 3': 0 };
+      return { handle, 'Contest 1': 0, 'Contest 2': 0, 'Contest 3': 0, 'Total': 0 };
     } else {
       const points = [
         entry['Contest 1'] ? entry['Contest 1'].points : 0,
