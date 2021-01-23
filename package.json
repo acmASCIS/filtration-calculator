@@ -16,8 +16,10 @@
     "body-parser": "^1.18.3",
     "crypto-js": "^3.1.9-1",
     "csv-stringify": "^4.3.1",
+    "dotenv": "^8.2.0",
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "express-basic-auth": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.6"

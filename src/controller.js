@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const fs = require('fs');
-const database = require('../database.json');
 const stringify = require('csv-stringify');
+
+const database = require('../database.json');
 
 router.get('/', (req, res) => {
   const handles = req.query.handles.split(';').map(handle => handle.toLowerCase().trim());
@@ -40,8 +40,10 @@ router.get('/', (req, res) => {
     'Contest 2 Details',
     'Contest 3 Details',
   ];
+
   res.setHeader('Content-Type', 'text/csv');
   res.setHeader('Content-Disposition', 'attachment; filename="points.csv"');
+
   stringify(data, { header: true, columns }).pipe(res);
 });
 

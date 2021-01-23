@@ -1,11 +1,12 @@
 const fs = require('fs');
-const stringify = require('csv-stringify');
 
 const CodeforcesSerivce = require('./CodeforcesService');
 const config = require('./config');
+const points = require('../points.json');
 
-const POINTS = [[1, 3, 1, 2, 2 , 3], [2, 3, 1, 1, 3], [1, 1, 4, 2, 1, 3]];
-const CONTESTS = ['259043', '259389', '259644'];
+const POINTS = points.points;
+const CONTESTS = points.contests;
+
 const PROBLEMS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 (async function() {
@@ -47,7 +48,7 @@ const PROBLEMS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     };
   }
 
-  fs.writeFile('database.json', JSON.stringify(data), err => {
+  fs.writeFile('database.json', JSON.stringify(data, null, 2), err => {
     if (err) throw err;
     console.log('Database created successfully.');
   });

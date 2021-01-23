@@ -5,11 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Filtration Points Calculator</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <h1>Filtration Points Calculator</h1>
-  <textarea id="input" placeholder="put handles each in a seperate line" rows=20 cols=70></textarea>
-  <button id="submit-btn">Submit</button>
+<body class="bg-gray-100">
+  <div class="p-2 flex items-stretch justify-center flex-col max-w-md mx-auto min-h-screen space-y-3">
+    <h1 class="text-2xl font-bold self-start">Filtration Points Calculator</h1>
+    <textarea class="rounded p-2 resize-none border border-gray-300" id="input" placeholder="Put handles each in a separate line" rows="20"></textarea>
+    <button class="bg-indigo-700 text-white p-2 rounded mb-2" id="submit-btn">Submit</button>
+    
+    <div class="pt-3">
+      <h2 class="text-lg font-bold">Points</h2>
+      <p class="text-xs -mt-2 mb-3">Please contact the tool admin if the points need to be configured.</p>
+  
+      <% points.forEach(function(point){ %>
+        <p class="text-sm"><b>Contest:</b> <%= point.contest %></p>
+        <p class="text-sm mb-4"><b>Points:</b> <%= point.points.join(' | ') %></p>
+      <% }); %>
+    </div>
+  </div>
 
   <script src="/index.js"></script>
 </body>

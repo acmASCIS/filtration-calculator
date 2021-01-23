@@ -1,4 +1,9 @@
+require('dotenv').config();
+
 module.exports = {
-  CF_KEY: '14d9a1df08b627c6c305d3fa66d885f262b5699f',
-  CF_SECRET: 'b3283db15ada680361564f69562c855418bc8e05'
+  PORT: process.env.PORT || 3000,
+  CF_KEY: process.env.CF_KEY,
+  CF_SECRET: process.env.CF_SECRET,
+  BASIC_AUTH_USERNAME: process.env.BASIC_AUTH_USERNAME,
+  BASIC_AUTH_PASSWORD: process.env.BASIC_AUTH_PASSWORD,
 };
